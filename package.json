@@ -1,0 +1,42 @@
+{
+  "name": "backend-ideas-business-ai",
+  "version": "1.0.0",
+  "description": "Backend API para generar ideas de publicaciones para negocios usando IA",
+  "module": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "start": "bun src/index.ts",
+    "build": "bun build src/index.ts --outdir ./dist --target bun",
+    "typecheck": "bunx tsc --noEmit",
+    "lint": "bunx eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.4.0",
+    "@google/genai": "^1.25.0",
+    "elysia": "^1.4.12",
+    "openai": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/node": "^24.8.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  },
+  "keywords": [
+    "api",
+    "backend",
+    "ai",
+    "business",
+    "ideas",
+    "typescript",
+    "bun",
+    "elysia"
+  ],
+  "author": "",
+  "license": "MIT"
+}
