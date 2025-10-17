@@ -3,9 +3,19 @@ import { isDevelopment } from "../config/env";
 import { logger } from "../utils/logger";
 
 export function handleError(context: any): ErrorResponse {
-  const { error, code } = context;
+  const { error, code, set } = context;
 
   logger.error(`Error [${code}]`, error);
+
+  // Rate limit errors
+  if (error instanceof Error && error.message.includes("Rate limited")) {
+    set.status = 429;
+    return {
+      success: false,
+      error: "Too Many Requests",
+      message: error.message,
+    };
+  }
 
   // Validation errors
   if (code === "VALIDATION") {
